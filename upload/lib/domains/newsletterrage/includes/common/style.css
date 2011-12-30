@@ -1,0 +1,22 @@
+
+	HTML, BODY {
+		height: 100%;
+	}
+	BODY {
+		color: #000;
+		background-color: #fff;
+		margin: 0px;
+		font-size: small;
+		font-family: tahoma, verdana, arial, helvetica, sans-serif;
+	}
+	FORM {
+		margin: 0px;
+	}
+	IMG {
+		border: 0px;
+	}
+	INPUT {
+		font-size: small;
+		font-family: verdana, tahoma, arial, helvetica, sans-serif;
+	}
+
