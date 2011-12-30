@@ -1,0 +1,36 @@
+Newsletter Rage
+Version 1.0
+January 2012
+
+Welcome to Newsletter Rage. Newsletter Rage is a mailing list manager writer in PHP. IT was designed to be easy to use, but powerful at the same time. Newsletter Rage is a free application created by linaccess.com and is provided as-is with no warranty.
+
+FEATURES:
+	Clean, clear tabbed interface
+	Easy subscribe/unsubscribe integration with any web page.
+	Password controlled administration area
+	E-mail confirmations to the subscriber upon subscribe / unsubscribe.
+	E-mail updates to the list owner upon subscribe / unsubscribe including member count
+	The ability to send messages as plain text or HTML (with a MIME compliant plain text version automatically created).
+	SMTP support
+	Mail Preview
+	Bulk cleanup of unconfirmed members
+	Bulk import and export of e-mail addresses
+	Blacklisting
+	Near live update of member count
+	Templates
+	Drafts
+
+REQUIREMENTS:
+	PHP 5.0 or later.
+	MySQL 3.2 or later.
+
+INSTALLATION:
+	Unzip the archive.
+	Upload the files to your web server
+	Edit the configuration file
+	Access the website, an install script will now take over the process
+
+SUPPORT:
+	For any support queries contact us through our website
+	http://www.newsletterrage.com
+	http://www.linaccess.com
