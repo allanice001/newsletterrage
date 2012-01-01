@@ -160,34 +160,30 @@
 
 	/**
 	 * Builds a new URL
-	 * @param string $page The internal name of the page
+	 * @param string $page The page alias or filename
 	 * @param array $query_string The values for the querystring, eg. array('x' => 'y') + $_GET
-	 * @param bool $full_path Adds the HTML prefixes to the URL
-	 * @param bool $secure Turns on $full_path if used
-	 * @param bool $html_encode Escape the URL allowing strings to be passed
+	 * @param string $options Any combonation of the following parameters: 'fsr'
+	 * 	f (Adds http domain prefix)
+	 * 	s (Adds https domain prefix)
+	 * 	r (Returns url unencoded, used with redirects)
 	 * @return string
 	 */
-	function url($page = '', $query_string = array(), $full_path = false, $secure = false, $html_encode = true)
+    function url($page = '', $query_string = array(), $options = '')
 	{
 		global $System;
 
-		$query_array = array();
+		$page  = isset($System['pages'][$page]) ? $System['pages'][$page] : $page;
+		$flags = (strpos($options, 'f') !== false ? 1 : 0) + (strpos($options, 's') !== false ? 2 : 0) + (strpos($options, 'r') !== false ? 4 : 0);
+		$query = '';
+		$link  = '';
+
 		foreach ($query_string as $key => $value) {
-			if (!is_array($value)) {
-				if (!empty($value)) {
-					$query_array[] = $key . '=' . urlencode($value);
-				}
-			} else {
-				foreach ($value as $child_key => $child_value) {
-					if (!empty($child_value)) {
-						$query_array[] = $key . '[' . urlencode($child_key) . ']=' . urlencode($child_value);
-					}
-				}
-			}
+			if ($key === '#') {$link = $value;} else {
+			if ($value) {$query .= ($query ? '&' : '') . ($key . '=' . urlencode($value));}}
 		}
 
-		$url = ($full_path || $secure ? ($secure ? $System['domain']['https'] : $System['domain']['http']) : '') . $System['domain']['root'] . ($page || $query_string ? ($page ? $page : $System['page']['name']) : '') . (count($query_array) ? '?' . implode('&', $query_array) : '');
-		return $html_encode ? htmlentities($url, ENT_QUOTES) : $url;
+		$url = ($flags & 3  ? ($flags & 2 ? $System['domain']['https'] : $System['domain']['http']) : '') . ($System['domain']['root'] . $page) . ($query ? ((strpos($page, '?') === false ? '?' : '&') . $query) : '') . ($link ? ('#' . $link) : '');
+		return ($flags & 4) ? $url : htmlentities($url, ENT_QUOTES);
 	}
 
 	/**

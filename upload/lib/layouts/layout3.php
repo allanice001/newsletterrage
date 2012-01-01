@@ -12,6 +12,5 @@
 	.GUILayout-HeaderWrapper,
 	.GUILayout-ContentWrapper,
 	.GUILayout-FooterWrapper {
-		background-color: #797979;
 	}
 
