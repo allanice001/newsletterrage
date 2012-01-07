@@ -47,6 +47,12 @@ class DB_Connection
 		$query->free();
 		return $result;
 	}
+    
+    function count($command) {
+        $query = $this->query($command);
+        $count  = mysql_num_fields($query->query_id);
+        return $count;
+    }
 
 	function getArray($command, $indexes = null, $values = null)
 	{
