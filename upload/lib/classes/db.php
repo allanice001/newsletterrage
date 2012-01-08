@@ -50,7 +50,7 @@ class DB_Connection
     
     function count($command) {
         $query = $this->query($command);
-        $count  = mysql_num_fields($query->query_id);
+        $count  = mysql_num_rows($query->query_id);
         return $count;
     }
 
