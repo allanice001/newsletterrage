@@ -41,4 +41,4 @@ echo
 ?>
 </pre>
 </p>
-<p>To see this page without the code snippet, use <?php echo '<a href="'. url($System['pages']['process'], array(), true). '">'. url($System['pages']['process'], array(), true) .'</a>'; ?>.</p>
+<p>To see this page without the code snippet, use <?php echo '<a href="'. url('process', array(), true). '">'. url('process') .'</a>'; ?>.</p>
