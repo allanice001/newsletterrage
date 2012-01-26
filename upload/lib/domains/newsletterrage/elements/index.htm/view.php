@@ -32,7 +32,7 @@ To embedd this form on your website, copy the code below.
 <?php
 echo 
     htmlentities('<p>') . '<br />' .
-    htmlentities('<form method="POST" action="'.urlPath().'">') . '<br />'.
+    htmlentities('<form method="POST" action="'. urlPath().'">') . '<br />'.
     htmlentities('<input type="text" name="address" size="20">'). '<br />'.
     htmlentities('<input type="submit" value="Submit" name="submit"><br />'). '<br />'.
     htmlentities('<font face="Tahoma" size="1">All subscribe/unsubscribe requests must be confirmed via email.</font>'). '<br />'.
@@ -42,3 +42,6 @@ echo
 </pre>
 </p>
 <p>To see this page without the code snippet, use <?php echo '<a href="'. url('process', array(), true). '">'. url('process') .'</a>'; ?>.</p>
+<p>To view the documentation, click here: <?php echo '<a href="'. url('doc_index', array(), true). '">'. url('doc_index', array(), true) .'</a>'; ?>.</p>
+<p>The administration panel is located <a href="<?echo url('admin_index');?>"><?echo url('admin_index');?></a></p>
+
