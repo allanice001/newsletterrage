@@ -1,0 +1,23 @@
+<?php
+
+	global $System;
+
+	$image_path = imagePath('elements/' . $System['element']['name']);
+
+//	echo
+//		'BODY {background: url(' . $image_path . 'bg.png' . ') repeat-x top;}';
+
+	echo
+		'.header_toolbar {width: 100%; font-size: 11px; line-height: 11px; text-align: center;}' .
+		'.header_toolbar .normal {background: url(' . $image_path . 'toolbar_c.gif) repeat-x bottom; padding: 2px 4px 0px 4px;}' .
+		'.header_toolbar .normal A {color: #7CB900; background: transparent; text-decoration: none;}' .
+		'.header_toolbar .selected {background: url(' . $image_path . 'toolbar_sc.gif) repeat-x bottom; color: #fff; padding: 0px 1px 9px 1px; font-weight: bold; vertical-align: middle;}' .
+		'.header_toolbar .selected A {color: #000; background: transparent; text-decoration: none;}';
+
+	echo
+		'.header_sub_toolbar {font-size: 11px; text-align: center;}' .
+		'.header_sub_toolbar .normal {background: url(' . $image_path . 'sub_n.gif) repeat-x bottom; padding: 0px 4px 3px 4px;}' .
+		'.header_sub_toolbar .normal A {color: #7CB900; background: transparent; text-decoration: none;}' .
+		'.header_sub_toolbar .selected {background: url(' . $image_path . 'sub_s.gif) repeat-x bottom; color: #fff; padding: 0px 4px 0px 4px; font-weight: bold; vertical-align: middle;}' .
+		'.header_sub_toolbar .selected A {color: #000; background: transparent; text-decoration: none;}';
+
