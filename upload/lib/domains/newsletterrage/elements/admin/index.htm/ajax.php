@@ -4,26 +4,30 @@
     $data    = get('data');
     $format  = get('format');
     $subject = get('subject');
+    $message = get('message');
     
     if ($format) {
         $Session->set('texthtml', $format);
-        echo '<b>Format = '. $format . '</b>';
     }
     
     if ($data == 'membercount') {
         echo $DB->count('SELECT address FROM mailinglist_subscribers WHERE confirmed');
     }    
     
-    if ($data == 'format') {
-        $format = $DB->lookup('SELECT value FROM gui_configuration WHERE name="texthtml" AND group_id = 5');
-    }
-    
-    if ($data == 'subject') {
-        echo $Session->get('subject');
+    if ($data == 'data') {
+        $data = array(
+            'subject' => $Session->get('subject'),
+            'message' => $Session->get('message'),
+            'texthtml' => $Session->get('texthtml'),
+            'lastsaved' => 0
+        ); 
+        print_pre($data);   
     }
     
     if ($subject) {
         $Session->set('subject', $subject);
     }
     
-    
+    if ($message) {
+        $Session->set('message', $message);
+    }
